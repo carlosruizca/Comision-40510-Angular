@@ -47,7 +47,7 @@ export class DirectivasComponent {
       {
         nombre: 'Leonardo',
         edad: 25,
-        activo: false
+        activo: false 
       },
     ];
 }

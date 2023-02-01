@@ -1,4 +1,4 @@
-<h1>Lista de estudiantes</h1>
+<h1 appDirectivaPersonalizada>Lista de estudiantes</h1>
 
 <ul>
     <li *ngFor="let estudiante of listaEstudiantes" [ngClass]="estudiante.activo ? 'activo' : 'inactivo'">{{estudiante.nombre }}
