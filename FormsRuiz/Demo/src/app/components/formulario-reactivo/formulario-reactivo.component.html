@@ -1,0 +1,23 @@
+<form [formGroup]="formularioLogin" (ngSubmit)="login()" class="was-validated">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Correo</label>
+        <input formControlName="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div class="valido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['correo'].valid">Campo válido</div>
+        <div class="invalido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['correo'].errors?.['required']">Favor ingrese un correo</div>
+        <div class="invalido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['correo'].errors?.['pattern']">El formato de correo es inválido</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+        <input formControlName="contrasena" type="password" class="form-control" id="exampleInputPassword1">
+        <div class="valido" *ngIf="formularioLogin.controls['contrasena'].dirty && formularioLogin.controls['contrasena'].valid">Campo válido</div>
+        <div class="invalido" *ngIf="formularioLogin.controls['contrasena'].dirty && formularioLogin.controls['contrasena'].errors?.['required']">Favor ingrese una contraseña</div>
+        <div class="invalido" *ngIf="formularioLogin.controls['contrasena'].dirty && formularioLogin.controls['contrasena'].errors?.['minlength']">La contraseña debe tener al menos 8 caracteres</div>
+    </div>
+    <div class="mb-3 form-check">
+        <input formControlName="recordarCredenciales" type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Recordar credenciales</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="formularioLogin.invalid">Login</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+    <button type="button" class="btn btn-danger">Registro</button>
+</form>
