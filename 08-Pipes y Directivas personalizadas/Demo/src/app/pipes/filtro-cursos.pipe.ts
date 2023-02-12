@@ -6,9 +6,9 @@ import { Curso } from '../modules/curso'
 })
 export class FiltroCursosPipe implements PipeTransform {
 
-  transform(cursos: Curso[], ...args: unknown[]): unknown {
-    return cursos.filter((curso) => {
-      curso.nombre.toLocaleLowerCase().includes(filtro.toLocaleLowerCase())
+  transform(cursos: Curso[], filtro: string): Curso [] {
+    return cursos.filter((c) => {
+      return c.nombre.toLocaleLowerCase().includes(filtro.toLocaleLowerCase())
     })
   }
 
