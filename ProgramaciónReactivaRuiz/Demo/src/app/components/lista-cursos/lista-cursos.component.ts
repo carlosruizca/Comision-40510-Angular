@@ -1,6 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { token } from 'src/app/config';
-import { Configuracion } from 'src/app/models/configuracion';
+import { Component, OnInit } from '@angular/core';
 import { Curso } from 'src/app/models/curso';
 import { CursoService } from 'src/app/services/curso.service';
 
@@ -13,8 +11,7 @@ export class ListaCursosComponent implements OnInit {
   cursos!: Curso[];
 
   constructor(
-    private cursoService: CursoService,
-    @Inject (token)private config: Configuracion,
+    private cursoService: CursoService
   ){}
 
   ngOnInit(): void {

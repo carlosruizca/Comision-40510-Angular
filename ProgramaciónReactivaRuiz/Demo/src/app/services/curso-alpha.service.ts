@@ -5,7 +5,7 @@ import { Curso } from '../models/curso';
   providedIn: 'root'
 })
 export class CursoAlphaService {
-      public cursos: Curso[] = [
+      private cursos: Curso[] = [
       { nombre: 'Testing QA Manual-Alpha', 
         comision: '32030', 
         profesor: {

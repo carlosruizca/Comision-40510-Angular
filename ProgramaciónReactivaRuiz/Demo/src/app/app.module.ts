@@ -10,7 +10,6 @@ import { TablaCursosComponent } from './components/tabla-cursos/tabla-cursos.com
 import { CursoAlphaService } from './services/curso-alpha.service';
 import { cursos } from './services/cursos.data';
 import { env } from 'src/environment/environment';
-import { config, token } from './config';
 
 @NgModule({
   declarations: [
@@ -32,9 +31,7 @@ import { config, token } from './config';
       }else {
         return new CursoService()
       }
-    }
-  },
-  {provide: token, useValue: config}
+    }}
   ],
   bootstrap: [AppComponent]
 })
