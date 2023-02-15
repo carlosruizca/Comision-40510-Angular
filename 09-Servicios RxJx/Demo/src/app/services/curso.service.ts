@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Curso } from '../models/curso';
 
 @Injectable({
@@ -51,49 +50,16 @@ fechaInicio: new Date(2023, 9, 1, 20, 30, 0),
 fechaFin: new Date(2024, 1, 1),
 inscripcionAbierta: true
     }
-  ];private cursos$!: BehaviorSubject<Curso[]>;
+  ];
 
-  constructor() {
-    this.cursos$ = new BehaviorSubject(this.cursos);
-    // this.cursos$ = new Observable<Curso[]>((suscriptor) => {
-    //   suscriptor.next(this.cursos);
+  constructor() { }
 
-    //   setTimeout(()=>{
-    //     let c: Curso = {
-    //       nombre: 'Angular Avanzando - Desde el Observable',
-    //       comision: '34022',
-    //       fechaInicio: new Date(),
-    //       fechaFin: new Date(),
-    //       inscripcionAbierta: true,
-    //       profesor: {
-    //         nombre: 'Ulises',
-    //         correo: 'ulises@gmail.com',
-    //         fechaRegistro: new Date()
-    //       }
-    //     };
-    //     this.cursos.push(c);
-    //     suscriptor.next(this.cursos);
-    //   }, 2000);
-    // });
-  }
-
-  obtenerCursosPromise(): Promise<Curso[]>{
-    return new Promise((resolve, reject) => {
-      if(this.cursos.length > 0){
-        resolve(this.cursos);
-      }else{
-        reject([]);
-      }
-    });
-  }
-
-  obtenerCursosObservable(): Observable<Curso[]>{
-    return this.cursos$.asObservable();
+  obtenerCursos(): Array<Curso>{
+    return this.cursos;
   }
 
   agregarCurso(curso: Curso){
     this.cursos.push(curso);
-    this.cursos$.next(this.cursos);
     console.log('Curso agregado', this.cursos);
   }
 }
